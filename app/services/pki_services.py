@@ -66,10 +66,11 @@ class PKIServices:
 
 
     def calculate_ca_certificate_fingerprint(self,
-                                             hash_algorithm : hashes.HashAlgorithm = hashes.SHA256()) -> tuple[str, str]:
+                                             hash_algorithm : hashes.HashAlgorithm = hashes.SHA384()) -> tuple[str, str]:
         """
         Opens the file provided and stores the content in
-        root_ca. Also calculates the fingerprint of the certificate using SHA256
+        root_ca. Also calculates the fingerprint of the certificate using SHA384,
+        as required for the envelopeRootCertificateThumbprint (IEC 63173-2, Table 106)
         """
 
         x509_certificate = load_pem_x509_certificate(self.root_ca_cert)

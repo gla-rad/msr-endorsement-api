@@ -48,14 +48,17 @@ class MsrOpenApiValidator:
         with open(api_path, encoding="utf-8") as spec_file:
             spec_dict = json.load(spec_file)
 
-        # Split the test URL between the base and the path
+        # Split the test URL between the host and the base path (e.g. "/api/secom").
+        # Tolerate a trailing slash and a trailing "/v2", since the spec adds that.
         url_parts = urlsplit(test_data.test_url)
-        self.url = f"{url_parts.scheme}://{url_parts.netloc}/"
-        self.path = url_parts.path
+        self.path = url_parts.path.rstrip("/")
 
-        # If a path has been specified, then add it to the OpenAPI server
-        if self.path:
-            spec_dict["servers"] = [{"url": self.path}]
+        # The base URL (always with a trailing slash) onto which "v2/<operation>" is appended
+        self.url = f"{url_parts.scheme}://{url_parts.netloc}{self.path}/"
+
+        # Register the base path as the OpenAPI server so that openapi-core strips
+        # it before matching the "/v2/..." paths of the spec
+        spec_dict["servers"] = [{"url": self.path or "/"}]
 
         # And load the OpenAPI specification
         self.open_api = OpenAPI.from_dict(spec_dict)
@@ -202,8 +205,8 @@ class MsrOpenApiValidator:
 
         search_filter = self.get_new_search_filter()
 
-        search_service_url = self.url + "api/secom/v2/searchService"
-        retrieve_results_url = self.url + "api/secom/v2/retrieveResult/"
+        search_service_url = self.url + "v2/searchService"
+        retrieve_results_url = self.url + "v2/retrieveResult/"
 
         search_filter.envelope, signature = self._pki_services.sign_envelope_object(search_filter.envelope)
         search_filter.envelope_signature = signature
@@ -460,13 +463,13 @@ class MsrOpenApiValidator:
                     # Second attempt to retrieve the result
                     sleep(3)
                     test_name = f"Wait 6 seconds then retrieve results for transaction id: {transaction_id}"
-                    retrieve_result_6s = self.run_retrieve_test(retrieve_results_url  + transaction_id, str(transaction_id), test_name, 200)
+                    retrieve_result_6s = self.run_retrieve_test(retrieve_results_url + transaction_id, str(transaction_id), test_name, 200)
                     self._record(test_results, retrieve_result_6s)
 
                     # Final attempt to retrieve the result
                     sleep(4)
                     test_name = f"Wait 10 seconds then retrieve results for transaction id: {transaction_id}"
-                    retrieve_result_10s = self.run_retrieve_test(retrieve_results_url  + transaction_id, str(transaction_id), test_name, 200)
+                    retrieve_result_10s = self.run_retrieve_test(retrieve_results_url + transaction_id, str(transaction_id), test_name, 200)
                     self._record(test_results, retrieve_result_10s)
 
                 else:
