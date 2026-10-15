@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f62f4b5-946e-476a-9e0a-d3aa53009673" name="Changes" comment="Making the configuration a little more flexible">
+    <list default="true" id="3f62f4b5-946e-476a-9e0a-d3aa53009673" name="Changes" comment="Updating the envelope signature generation operation to match the latest SECOM v2.0">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ServiceRegistryValidator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ServiceRegistryValidator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/secom/v2/secom_service_instance.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/secom/v2/secom_service_instance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schema/MSRv2-dodgy.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/schema/MSRv2-dodgy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +76,7 @@
     "HTTP Request.generated-requests | #1.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.app.executor": "Debug",
-    "Python.gui.executor": "Debug",
+    "Python.gui.executor": "Run",
     "Python.main.executor": "Run",
     "Python.msr_openapi_validator.executor": "Run",
     "Python.secom_search_filter.executor": "Run",
@@ -81,7 +85,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "gui-cd3",
+    "git-widget-placeholder": "Merging gui-cd3",
     "last_opened_file_path": "/mnt/data/git/github/msr-endorsement-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -144,7 +148,6 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/bin/python" />
-      <option name="SDK_NAME" value="Python 3.12 (msr-endorsement-api)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -156,6 +159,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="FastAPI.FastAPI" />
       <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="Python.gui" />
     </list>
@@ -350,12 +354,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Making the configuration a little more flexible" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$main.coverage" NAME="main Coverage Results" MODIFIED="1767630895515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$FAstAPI.coverage" NAME="FAstAPI Coverage Results" MODIFIED="1767638808403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/ServiceRegistryValidator$FastAPI.coverage" NAME="FastAPI Coverage Results" MODIFIED="1769010725203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$secom_search_filter.coverage" NAME="secom_search_filter Coverage Results" MODIFIED="1766136800121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model/secom/v2" />
     <SUITE FILE_PATH="coverage/ServiceRegistryValidator$msr_openapi_validator.coverage" NAME="msr_openapi_validator Coverage Results" MODIFIED="1766136894249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_scripts" />
-    <SUITE FILE_PATH="coverage/msr_endorsement_api$gui.coverage" NAME="gui Coverage Results" MODIFIED="1782368740020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/ServiceRegistryValidator$app.coverage" NAME="app Coverage Results" MODIFIED="1766156026997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/msr_endorsement_api$gui.coverage" NAME="gui Coverage Results" MODIFIED="1792068545332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$main.coverage" NAME="main Coverage Results" MODIFIED="1767630895515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$secom_search_filter.coverage" NAME="secom_search_filter Coverage Results" MODIFIED="1766136800121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model/secom/v2" />
+    <SUITE FILE_PATH="coverage/ServiceRegistryValidator$FAstAPI.coverage" NAME="FAstAPI Coverage Results" MODIFIED="1767638808403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
